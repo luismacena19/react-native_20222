@@ -8,6 +8,8 @@ import {
 
 export default function App() {
   const [lembrete, setLembrete] = useState('')
+  const [lembretes,setLembretes] = useState([])
+
   const capturarTexto = (lembreteDigitado) => {
     lembreteDigitado = lembreteDigitado.toUpperCase()
     // Não faça isso
@@ -16,8 +18,10 @@ export default function App() {
     setLembrete(lembreteDigitado)
   }
   const adicionarLembrete = () => {
-    console.log('Adicionando...', lembrete)
+    // console.log('Adicionando...', lembrete)
+    setLembretes(lembretes => [lembrete, ...lembretes])
     setLembrete('')
+    console.log(lembretes)
   }
   // Single source of true
   // Unica fonte de dados
